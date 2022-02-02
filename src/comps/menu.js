@@ -15,11 +15,18 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 
-import Photography from "./photography";
 import { Container } from "@mui/material";
-import Contact from "./contact";
 
 const drawerWidth = 240;
+
+// const menuItems = [
+//   { text: "Home", icon: <HomeIcon />, path: "/" },
+//   { text: "Photography", icon: <LinkedCameraIcon />, path: "/photography" },
+//   { text: "Graphic", icon: <BrushIcon />, path: "/graphic" },
+//   { text: "Products", icon: <ShoppingCartIcon />, path: "/shop" },
+
+//   { text: "Contact Me", icon: <EmailIcon />, path: "/contact" },
+// ];
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -149,7 +156,7 @@ export default function PersistentDrawerLeft() {
           <DrawerHeader />
           {/* <p>Hello!</p>
           <Photography /> */}
-          <Contact />
+          {/* <Contact /> */}
         </Main>
       </Box>
     </Container>
