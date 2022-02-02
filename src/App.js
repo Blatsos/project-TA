@@ -1,31 +1,28 @@
-import "./App.css";
-
-import * as React from "react";
+import React from "react";
+import PersistentDrawerLeft from "./comps/menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import BasicMenu from "./comps/menu";
-import { Paper } from "@mui/material";
-import { purple } from "@mui/material/colors";
+import { teal } from "@mui/material/colors";
+import Contact from "./comps/contact";
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: "#fefefe",
-    },
-    secondary: purple,
+    primary: teal,
+    mode: "light",
+  },
+  typography: {
+    fontFamily: "Supermercado",
   },
 });
 
-function App() {
+const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <React.Fragment>
-        <Paper elevation={0}>
-          <BasicMenu />
-          <p>Hello!</p>
-        </Paper>
-      </React.Fragment>
-    </ThemeProvider>
+    <React.Fragment>
+      <ThemeProvider theme={theme}>
+        <PersistentDrawerLeft />
+          
+      </ThemeProvider>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
