@@ -36,10 +36,10 @@ const Contact = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_3mpc33c",
-        "template_luy23oc",
+        "service_agis71t",
+        "template_i14bezi",
         e.target,
-        "user_m7GaJCqBu0xIDmmjXPn8V"
+        "user_7jYn62gmoeCADbJMY06K8"
       )
       .then(
         (result) => {
@@ -72,18 +72,21 @@ const Contact = () => {
           label="Όνομα"
         ></TextField>
         <TextField
+          name="surname"
           onChange={(e) => setSurname(e.target.value)}
           required
           fullWidth
           label="Επίθετο"
         ></TextField>
         <TextField
+          name="phone"
           onChange={(e) => setPhone(e.target.value)}
           required
           fullWidth
           label="Κινητό"
         ></TextField>
         <TextField
+          name="email"
           onChange={(e) => setEmail(e.target.value)}
           required
           fullWidth
@@ -91,6 +94,7 @@ const Contact = () => {
         ></TextField>
 
         <TextField
+          name="message"
           onChange={(e) => setMessage(e.target.value)}
           required
           fullWidth
@@ -101,6 +105,7 @@ const Contact = () => {
         <FormControl>
           <FormLabel>Ενδιαφέρομαι για:</FormLabel>
           <RadioGroup
+            name="reason"
             value={reason}
             onChange={(e) => setReason(e.target.value)}
           >

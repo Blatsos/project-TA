@@ -6,12 +6,14 @@ import Graphic from "./comps/graphic";
 import Layout from "./comps/layout";
 import Home from "./comps/home";
 import Photography from "./comps/photography";
-import { deepOrange, grey, purple } from "@mui/material/colors";
+import { deepOrange, grey, purple, red } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
     mode: "light",
-    primary: grey,
+    primary: {
+      main: grey[900],
+    },
     secondary: grey,
   },
 });
