@@ -1,15 +1,24 @@
-import { Button, Container, FormControlLabel } from "@mui/material";
+import {
+  Button,
+  Container,
+  FormControlLabel,
+  Grid,
+  Paper,
+  Typography,
+} from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { makeStyles } from "@mui/styles";
 import SendIcon from "@mui/icons-material/Send";
 import { FormControl, FormLabel } from "@mui/material";
 import { RadioGroup, Radio } from "@mui/material";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const useStyles = makeStyles({
   field: {
     marginTop: 25,
-    marginBottom: 20,
+    marginBottom: 200,
+    paddingTop: 20,
     display: "block",
   },
 });
@@ -25,35 +34,57 @@ const Contact = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(name, surname, email, phone, reason, message);
+    emailjs
+      .sendForm(
+        "service_3mpc33c",
+        "template_luy23oc",
+        e.target,
+        "user_m7GaJCqBu0xIDmmjXPn8V"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+
+    e.target.reset();
   };
   return (
     <Container>
-      <form noValidate autoComplete="off" onSubmit={submitHandler}>
+      <Typography className={classes.field} variant="h4">
+        Πως μπορώ να βοηθήσω;
+      </Typography>
+
+      <form
+        className={classes.field}
+        noValidate
+        autoComplete="off"
+        onSubmit={submitHandler}
+      >
         <TextField
+          name="name"
           onChange={(e) => setName(e.target.value)}
-          className={classes.field}
           fullWidth
           required
           label="Όνομα"
         ></TextField>
         <TextField
           onChange={(e) => setSurname(e.target.value)}
-          className={classes.field}
           required
           fullWidth
           label="Επίθετο"
         ></TextField>
         <TextField
           onChange={(e) => setPhone(e.target.value)}
-          className={classes.field}
           required
           fullWidth
           label="Κινητό"
         ></TextField>
         <TextField
           onChange={(e) => setEmail(e.target.value)}
-          className={classes.field}
           required
           fullWidth
           label="Email"
@@ -68,7 +99,7 @@ const Contact = () => {
           label="Μήνυμα"
         ></TextField>
         <FormControl>
-          <FormLabel>Λόγως επικοινωνίας</FormLabel>
+          <FormLabel>Ενδιαφέρομαι για:</FormLabel>
           <RadioGroup
             value={reason}
             onChange={(e) => setReason(e.target.value)}

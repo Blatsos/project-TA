@@ -1,23 +1,18 @@
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
 import Contact from "./comps/contact";
 import { Route, Routes } from "react-router";
 import Graphic from "./comps/graphic";
 import Layout from "./comps/layout";
 import Home from "./comps/home";
 import Photography from "./comps/photography";
+import { deepOrange, grey, purple } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
-    primary: red,
-    secondary: {
-      main: "#FFFFFF",
-    },
     mode: "light",
-  },
-  typography: {
-    fontFamily: "Supermercado",
+    primary: grey,
+    secondary: grey,
   },
 });
 

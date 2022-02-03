@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Avatar,
   Drawer,
   IconButton,
   List,
@@ -23,6 +24,25 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const drawerWidth = 240;
 
+const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
+  ({ theme, open }) => ({
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: `-${drawerWidth}px`,
+    ...(open && {
+      transition: theme.transitions.create("margin", {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginLeft: 0,
+    }),
+  })
+);
+
 const menuItems = [
   { text: "Home", icon: <HomeIcon />, path: "/" },
   { text: "Photography", icon: <LinkedCameraIcon />, path: "/photography" },
@@ -32,29 +52,41 @@ const menuItems = [
   { text: "Contact Me", icon: <EmailIcon />, path: "/contact" },
 ];
 
-const useStyles = makeStyles({
-  page: {
-    background: "#f9f9f9",
-    with: "100%",
-  },
-  drawer: {
-    width: drawerWidth,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  root: {
-    display: "flex",
-  },
+const useStyles = makeStyles((theme) => {
+  return {
+    page: {
+      // background: "#0d0d0d",
+      with: "100%",
+    },
+    drawer: {
+      width: 30,
+    },
+    drawerPaper: {
+      width: '100%',
+    },
+    root: {
+      display: "flex",
+    },
+    appbar: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+    toolbar: theme.mixins.toolbar,
+    menu: {
+      flexGrow: 1,
+    },
+    avatar: {
+      marginLeft: theme.spacing(2),
+    },
+  };
 });
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  padding: theme.spacing(0, 1),
+  padding: theme.spacing(0, 2),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-  justifyContent: "center",
+  justifyContent: "left",
 }));
 
 const Layout = ({ children }) => {
@@ -72,16 +104,17 @@ const Layout = ({ children }) => {
 
   return (
     <div className={classes.root}>
-      <div>
-        <AppBar>
-          <Toolbar>
-            <IconButton onClick={handleDrawerOpen} edge="start">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h5">Menu</Typography>
-          </Toolbar>
-        </AppBar>
-      </div>
+      <AppBar className={classes.appbar}>
+        <Toolbar>
+          <IconButton onClick={handleDrawerOpen} edge="start">
+            <MenuIcon color="secondary"/>
+          </IconButton>
+          <Typography className={classes.menu} variant="h5">
+            Menu
+          </Typography>
+          <Avatar src="/logo.png" className={classes.avatar} />
+        </Toolbar>
+      </AppBar>
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -90,7 +123,7 @@ const Layout = ({ children }) => {
         classes={{ paper: classes.drawerPaper }}
       >
         <DrawerHeader>
-          <Typography>Header</Typography>
+          <Typography>Dashboard</Typography>
           <IconButton onClick={handleDrawerClose}>
             <CloseIcon />
           </IconButton>
@@ -102,6 +135,7 @@ const Layout = ({ children }) => {
               key={item.text}
               onClick={() => {
                 navigate(item.path);
+                handleDrawerClose();
               }}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
@@ -110,7 +144,10 @@ const Layout = ({ children }) => {
           ))}
         </List>
       </Drawer>
-      <div className={classes.page}>{children}</div>
+      <div className={classes.page}>
+        <div className={classes.toolbar}></div>
+        {children}
+      </div>
     </div>
   );
 };
