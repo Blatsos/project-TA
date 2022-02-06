@@ -1,0 +1,10 @@
+.rotate {
+  transform: rotate(90deg);
+  max-width: 60% !important;
+  height: auto;
+}
+
+.some {
+  /* padding-left: 50%; */
+  margin-right: 82% !important;
+}
