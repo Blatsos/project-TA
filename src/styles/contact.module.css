@@ -1,10 +1,28 @@
 .rotate {
   transform: rotate(90deg);
-  max-width: 60% !important;
+  max-width: 75% !important;
   height: auto;
 }
 
-.some {
-  /* padding-left: 50%; */
-  margin-right: 82% !important;
+.form_button {
+  margin-left: 86% !important;
+  margin-right: 2% !important;
+}
+
+.form {
+  border: 1px solid red;
+  /* display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-column-gap: 20px; */
+}
+
+.form_item {
+  /* border: 1px solid red !important; */
+  padding-bottom: 25px !important;
+  margin-right: 70% !important;
+}
+
+.options {
+  border: 1px solid green;
+  margin-right: 90% !important;
 }

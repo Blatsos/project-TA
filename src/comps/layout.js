@@ -21,6 +21,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import CloseIcon from "@mui/icons-material/Close";
+import PersonIcon from "@mui/icons-material/Person";
+import layoutCss from "../styles/layout.module.css";
 
 const drawerWidth = 240;
 
@@ -50,6 +52,7 @@ const menuItems = [
   { text: "Products", icon: <ShoppingCartIcon />, path: "/shop" },
 
   { text: "Contact Me", icon: <EmailIcon />, path: "/contact" },
+  { text: "About Me", icon: <PersonIcon />, path: "/about" },
 ];
 
 const useStyles = makeStyles((theme) => {
@@ -122,15 +125,15 @@ const Layout = ({ children }) => {
         anchor="left"
         classes={{ paper: classes.drawerPaper }}
       >
-        <DrawerHeader>
-          <Typography>Dashboard</Typography>
+        <DrawerHeader className={layoutCss.drawer_header}>
           <IconButton onClick={handleDrawerClose}>
             <CloseIcon />
           </IconButton>
         </DrawerHeader>
-        <List>
+        <List className={layoutCss.list}>
           {menuItems.map((item) => (
             <ListItem
+              className={layoutCss.one}
               button
               key={item.text}
               onClick={() => {
