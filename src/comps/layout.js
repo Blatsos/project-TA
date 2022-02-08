@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => {
       width: 30,
     },
     drawerPaper: {
-      width: '100%',
+      width: "100%",
     },
     root: {
       display: "flex",
@@ -107,12 +107,12 @@ const Layout = ({ children }) => {
       <AppBar className={classes.appbar}>
         <Toolbar>
           <IconButton onClick={handleDrawerOpen} edge="start">
-            <MenuIcon color="secondary"/>
+            <MenuIcon color="secondary" />
           </IconButton>
           <Typography className={classes.menu} variant="h5">
             Menu
           </Typography>
-          <Avatar src="/logo.png" className={classes.avatar} />
+          <Avatar variant="square" src="/logo.png" className={classes.avatar} />
         </Toolbar>
       </AppBar>
       <Drawer

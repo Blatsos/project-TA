@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Button,
   Container,
   FormControlLabel,
@@ -13,6 +14,7 @@ import { FormControl, FormLabel } from "@mui/material";
 import { RadioGroup, Radio } from "@mui/material";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import avatarCss from "../styles/contact.module.css";
 
 const useStyles = makeStyles({
   field: {
@@ -102,8 +104,8 @@ const Contact = () => {
           rows={4}
           label="Μήνυμα"
         ></TextField>
-        <FormControl>
-          <FormLabel>Λόγος επικοινωνίας :</FormLabel>
+        <FormControl color="secondary">
+          <FormLabel>Ενδιαφέρομαι για:</FormLabel>
           <RadioGroup
             name="reason"
             value={reason}
@@ -125,7 +127,18 @@ const Contact = () => {
               label="Ερώτηση"
             />
           </RadioGroup>
-          <Button type="submit" endIcon={<SendIcon />} variant="outlined">
+          <Button
+            className={avatarCss.some}
+            type="submit"
+            endIcon={
+              <img
+                variant="square"
+                className={avatarCss.rotate}
+                src="/TA LOGO GREY.png"
+              />
+            }
+            variant="outlined"
+          >
             Αποστολή
           </Button>
         </FormControl>
