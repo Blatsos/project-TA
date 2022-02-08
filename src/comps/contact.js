@@ -103,7 +103,7 @@ const Contact = () => {
           label="Μήνυμα"
         ></TextField>
         <FormControl>
-          <FormLabel>Ενδιαφέρομαι για:</FormLabel>
+          <FormLabel>Λόγος επικοινωνίας :</FormLabel>
           <RadioGroup
             name="reason"
             value={reason}

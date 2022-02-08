@@ -7,6 +7,7 @@ import Layout from "./comps/layout";
 import Home from "./comps/home";
 import Photography from "./comps/photography";
 import { deepOrange, grey, purple, red } from "@mui/material/colors";
+import About from "./comps/about";
 
 const theme = createTheme({
   palette: {
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/graphic" element={<Graphic />} />
             <Route path="/shop" element={<h1>Eshop</h1>} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </Layout>
       </ThemeProvider>
