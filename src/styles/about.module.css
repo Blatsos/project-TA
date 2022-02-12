@@ -1,0 +1,37 @@
+.text {
+  border: 1px solid red;
+  color: #e0e0e0;
+  width: 90%;
+  text-align: left;
+}
+
+.container {
+  /* margin-left: 130%; */
+  border: 1px solid red;
+  background-color: #212121;
+  width: 96vw;
+  height: 40vw;
+  display: grid;
+  grid-template-columns: 20vw 40vw;
+  grid-template-rows: 300px;
+  align-items: center;
+  justify-content: left;
+  align-content: center;
+  justify-items: left;
+  row-gap: 50px;
+}
+
+.image {
+  width: 70%;
+  align-self: left;
+  justify-self: left;
+  border-radius: 15%;
+  margin: 4%;
+}
+
+.button {
+  justify-self: left;
+  align-self: right;
+  padding-left: 200px;
+  color: red;
+}

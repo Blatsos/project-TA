@@ -19,6 +19,9 @@ const theme = createTheme({
       main: grey[500],
     },
   },
+  typography: {
+    fontFamily: 'Roboto'
+  }
 });
 
 const App = () => {
